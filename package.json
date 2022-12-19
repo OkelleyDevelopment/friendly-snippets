@@ -295,7 +295,7 @@
       },
       {
         "language": [
-          "djangohtml", 
+          "djangohtml",
           "htmldjango"
         ],
         "path": "./snippets/frameworks/djangohtml.json"
