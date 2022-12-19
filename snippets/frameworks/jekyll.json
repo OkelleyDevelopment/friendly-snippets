@@ -1,469 +1,538 @@
 {
-  "Show": {
-    "prefix": "show",
-    "description": "Output markup: {{ }}",
-    "body": "{{ $1 }}"
-  },
-
   "Execute": {
-    "prefix": "execute",
-    "description": "Tag markup: {%- -%}",
-    "body": "{%- $1 -%}"
-  },
-
-  "Tag assign": {
-    "prefix": "assign",
-    "description": "Variable tag: assign",
-    "body": ["{%- assign ${variable} = ${value} -%}"]
-  },
-
-  "Tag break": {
-    "prefix": "break",
-    "description": "Iteration tag: break",
-    "body": ["{%- break -%}"]
-  },
-
-  "Tag capture": {
-    "prefix": "capture",
-    "description": "Variable tag: capture",
-    "body": ["{%- capture ${variable} -%}${code:}{%- endcapture -%}"]
-  },
-
-  "Tag case": {
-    "prefix": "case",
-    "description": "Control flow tag: case",
+    "prefix": "\"execute\"",
     "body": [
-      "{%- case ${variable} -%}",
-      "\t{%- when ${condition} -%}",
-      "\t\t${code1:}",
-      "\t{%- else -%}",
-      "\t\t${code2:}",
-      "{%- endcase -%}"
-    ]
+      "\"{%- $1 -%}\""
+    ],
+    "description": "\"Tag markup: {%- -%}\""
   },
-
-  "Tag comment": {
-    "prefix": "comment",
-    "description": "Control flow tag: case",
-    "body": ["{%- comment -%}${description:}{%- endcomment -%}"]
-  },
-
-  "Tag context variable": {
-    "prefix": "convar",
-    "description": "Context Variable",
-    "body": ["{{ ${variable:} }}"]
-  },
-
-  "Tag continue": {
-    "prefix": "continue",
-    "description": "Iteration tag: continue",
-    "body": ["{%- continue -%}"]
-  },
-
-  "Tag cycle": {
-    "prefix": "cycle",
-    "description": "Iteration tag: cycle",
-    "body": ["{%- cycle '${0:odd}', '${1:even}' -%}"]
-  },
-
-  "Tag collection directory": {
-    "prefix": "cdirp",
-    "description": "The full path to the collection's source direcotry",
-    "body": ["{{ site.${my_collection}.directory }}"]
-  },
-
-  "Tag collection relative path": {
-    "prefix": "crelp",
-    "description": "The path to the document's source file realtive to the site source",
-    "body": ["{{ site.collections.${my_collection}.relative_path }}"]
-  },
-
-  "Tag decrement": {
-    "prefix": "decrement",
-    "description": "Variable tag: decrement",
-    "body": ["{%- decrement ${variable} -%}"]
-  },
-
-  "Tag for": {
-    "prefix": "for",
-    "description": "Iteration tag: for",
-    "body": [
-      "{%- for ${item} in ${collection} -%}",
-      "\t${code:}",
-      "{%- endfor -%}"
-    ]
-  },
-
-  "Tag increment": {
-    "prefix": "increment",
-    "description": "Variable tag: increment",
-    "body": ["{%- increment ${variable} -%}"]
-  },
-
-  "Tag if": {
-    "prefix": "if",
-    "description": "Control flow tag: if",
-    "body": ["{%- if ${condition} -%}", "\t${code:}", "{%- endif -%}"]
-  },
-
-  "Tag else": {
-    "prefix": "else",
-    "description": "Control flow tag: else",
-    "body": ["{%- else -%}"]
-  },
-
-  "Tag elsif": {
-    "prefix": "elsif",
-    "description": "Control flow tag: elsif",
-    "body": ["{%- elsif ${condition} -%}"]
-  },
-
-  "Tag if else": {
-    "prefix": "ifelse",
-    "description": "Control flow tag: if else",
-    "body": [
-      "{%- if ${condition} -%}",
-      "\t${code1:}",
-      "{%- else -%}",
-      "\t${code2:}",
-      "{%- endif -%}"
-    ]
-  },
-
-  "Tag gist": {
-    "prefix": "gist",
-    "description": "Add a gist code block",
-    "body": ["{%- gist ${gist:user/gist-id} -%}"]
-  },
-
-  "Tag highlight": {
-    "prefix": "highlight",
-    "description": "Syntax tag: highlight",
-    "body": [
-      "{%- highlight ${lang:javascript} -%}",
-      "\t\t${code:}",
-      "{%- endhighlight -%}"
-    ]
-  },
-
-  "Tag include": {
-    "prefix": "include",
-    "description": "Tag: include",
-    "body": ["{%- include ${snippet} -%}"]
-  },
-
-  "Site Vairable Date": {
-    "prefix": "date",
-    "description": "Tag: site.date",
-    "body": ["{{ site.date | date: '${format: %b %d, %Y}' }}"]
-  },
-
-  "Tag include relative": {
-    "prefix": "increl",
-    "description": "Tag: include relative",
-    "body": ["{%- include_relative '${file:}' -%}"]
-  },
-
-  "Tag Post URL": {
-    "prefix": "posturl",
-    "description": "Tag: post_url",
-    "body": ["{%- post_url ${url:} -%}"]
-  },
-
-  "Tag unless": {
-    "prefix": "unless",
-    "description": "Control flow tag: unless",
-    "body": ["{%- unless ${condition} -%}", "\t${code:}", "{%- endunless -%}"]
-  },
-
-  "Tag when": {
-    "prefix": "when",
-    "description": "Control flow tag: when",
-    "body": ["{%- when ${condition} -%}", "${code:}"]
-  },
-
-  "Tag Option limit": {
-    "prefix": "limit",
-    "description": "For loops option",
-    "body": ["limit: ${limit:5}"]
-  },
-
-  "Tag Option offset": {
-    "prefix": "offset",
-    "description": "For loops option",
-    "body": ["offset: ${offset:0}"]
-  },
-
-  "Tag Option reversed": {
-    "prefix": "reversed",
-    "description": "For loops option",
-    "body": ["reversed"]
-  },
-
-  "Tag raw": {
-    "prefix": "raw",
-    "description": "Tag: raw",
-    "body": ["{%- raw -%}${code:}{%- endraw -%}"]
-  },
-
-  "Tag paginate next or previous page": {
-    "prefix": "paginate",
-    "description": "Tag: paginate next or previous page",
-    "body": ["{{ paginator.${next:previous}_page }}"]
-  },
-
-  "Filter jsonify": {
-    "prefix": "json",
-    "description": "Array filter: jsonify",
-    "body": "| jsonify }}'"
-  },
-
-  "Filter join": {
-    "prefix": "join",
-    "description": "Array filter: join",
-    "body": "| join: '${seperator:, }}'"
-  },
-
-  "Filter first": {
-    "prefix": "first",
-    "description": "Array filter: first",
-    "body": "| first"
-  },
-
-  "Filter last": {
-    "prefix": "last",
-    "description": "Array filter: last",
-    "body": "| last"
-  },
-
-  "Filter map": {
-    "prefix": "map",
-    "description": "Array filter: map",
-    "body": "| map: '${key}'"
-  },
-
-  "Filter size": {
-    "prefix": "size",
-    "description": "Array filter: size",
-    "body": "| size"
-  },
-
-  "Filter sort": {
-    "prefix": "sort",
-    "description": "Array filter: sort",
-    "body": "| sort"
-  },
-
-  "Filter uniq": {
-    "prefix": "uniq",
-    "description": "Array filter: uniq",
-    "body": "| uniq"
-  },
-
-  "Filter ceil": {
-    "prefix": "ceil",
-    "description": "Math filter: ceil",
-    "body": "| ceil"
-  },
-
-  "Filter divided by": {
-    "prefix": "divided_by",
-    "description": "Math filter: divided by",
-    "body": "| divided_by: ${divided_by:2}"
-  },
-
-  "Filter floor": {
-    "prefix": "floor",
-    "description": "Math filter: floor",
-    "body": "| floor"
-  },
-
-  "Filter minus": {
-    "prefix": "minus",
-    "description": "Math filter: minus",
-    "body": "| minus: ${minus:1}"
-  },
-
-  "Filter modulo": {
-    "prefix": "modulo",
-    "description": "Math filter: modulo",
-    "body": "| modulo: ${modulo:2}"
-  },
-
-  "Filter plus": {
-    "prefix": "plus",
-    "description": "Math filter: plus",
-    "body": "| plus: ${plus:1}"
-  },
-
-  "Filter round": {
-    "prefix": "round",
-    "description": "Math filter: round",
-    "body": "| round: ${round:0}"
-  },
-
-  "Filter times": {
-    "prefix": "times",
-    "description": "Math filter: times",
-    "body": "| times: ${times:1}"
-  },
-
   "Filter append": {
-    "prefix": "append",
-    "description": "String filter: append",
-    "body": "| append: '${string}' }}"
-  },
-
-  "Filter capitalize": {
-    "prefix": "capitalize",
-    "description": "String filter: capitalize",
-    "body": "| capitalize }}"
-  },
-
-  "Filter downcase": {
-    "prefix": "downcase",
-    "description": "String filter: downcase",
-    "body": "| downcase }}"
-  },
-
-  "Filter escape": {
-    "prefix": "escape",
-    "description": "String filter: escape",
-    "body": "| escape }}"
-  },
-
-  "Filter markdownify": {
-    "prefix": "markdown",
-    "description": "String filter: markdownify",
-    "body": "| markdownify }}"
-  },
-
-  "Filter prepend": {
-    "prefix": "prepend",
-    "description": "String filter: prepend",
-    "body": "| prepend: '${string}' }}"
-  },
-
-  "Filter remove": {
-    "prefix": "remove",
-    "description": "String filter: remove",
-    "body": "| remove: '${string}' }}"
-  },
-
-  "Filter remove first": {
-    "prefix": "remove_first",
-    "description": "String filter: remove first",
-    "body": "| remove_first: '${string}' }}"
-  },
-
-  "Filter replace": {
-    "prefix": "replace",
-    "description": "String filter: replace",
-    "body": "| replace: '${target}', '${replace}' }}"
-  },
-
-  "Filter replace first": {
-    "prefix": "replace_first",
-    "description": "String filter: replace first",
-    "body": "| replace_first: '${target}', '${replace}' }}"
-  },
-
-  "Filter slice": {
-    "prefix": "slice",
-    "description": "String filter: slice",
-    "body": "| slice: ${from:0}, ${to:5} }}"
-  },
-
-  "Filter slice single character": {
-    "prefix": "slice_single",
-    "description": "String filter: slice with single parameter",
-    "body": "| slice: ${at} }}"
-  },
-
-  "Filter split": {
-    "prefix": "split",
-    "description": "String filter: split",
-    "body": "| split: '${splitter:,}' }}"
-  },
-
-  "Filter strip": {
-    "prefix": "strip",
-    "description": "String filter: strip",
-    "body": "| strip }}"
-  },
-
-  "Filter lstrip": {
-    "prefix": "lstrip",
-    "description": "String filter: lstrip",
-    "body": "| lstrip }}"
-  },
-
-  "Filter rstrip": {
-    "prefix": "rstrip",
-    "description": "String filter: rstrip",
-    "body": "| rstrip }}"
-  },
-
-  "Filter strip html": {
-    "prefix": "strip_html",
-    "description": "String filter: strip html",
-    "body": "| strip_html }}"
-  },
-
-  "Filter strip newlines": {
-    "prefix": "strip_newlines",
-    "description": "String filter: strip newlines",
-    "body": "| strip_newlines }}"
-  },
-
-  "Filter truncate": {
-    "prefix": "truncate",
-    "description": "String filter: truncate",
-    "body": "| truncate: ${length:20}, '${ellipsis:...}' }}"
-  },
-
-  "Filter truncatewords": {
-    "prefix": "truncatewords",
-    "description": "String filter: truncatewords",
-    "body": "| truncatewords: ${length:5}, '${ellipsis:...}' }}"
-  },
-
-  "Filter upcase": {
-    "prefix": "upcase",
-    "description": "String filter: upcase }}",
-    "body": "| upcase }}"
-  },
-
-  "Filter url encode": {
-    "prefix": "url_encode",
-    "description": "String filter: url encode",
-    "body": "| url_encode }}"
-  },
-
-  "Filter uri escape": {
-    "prefix": "uri_escape",
-    "description": "String filter: uri escape",
-    "body": "| uri_escape }}"
-  },
-
-  "Filter xml escape": {
-    "prefix": "xml_escape",
-    "description": "String filter: xml escape",
-    "body": "| xml_escape }}"
-  },
-
-  "Front Matter": {
-    "prefix": "fm",
-    "description": "Add front matter",
+    "prefix": "\"append\"",
     "body": [
-      "---",
-      "layout: ${layout:default}",
-      "title: ${title}",
-      "categories: ${category}",
-      "permalink: ${path}",
-      "tags: ${tag}",
-      "excerpt: ${description}",
-      "---"
-    ]
+      "\"| append: '${string}' }}\""
+    ],
+    "description": "\"String filter: append\""
+  },
+  "Filter capitalize": {
+    "prefix": "\"capitalize\"",
+    "body": [
+      "\"| capitalize }}\""
+    ],
+    "description": "\"String filter: capitalize\""
+  },
+  "Filter ceil": {
+    "prefix": "\"ceil\"",
+    "body": [
+      "\"| ceil\""
+    ],
+    "description": "\"Math filter: ceil\""
+  },
+  "Filter divided by": {
+    "prefix": "\"divided_by\"",
+    "body": [
+      "\"| divided_by: ${divided_by:2}\""
+    ],
+    "description": "\"Math filter: divided by\""
+  },
+  "Filter downcase": {
+    "prefix": "\"downcase\"",
+    "body": [
+      "\"| downcase }}\""
+    ],
+    "description": "\"String filter: downcase\""
+  },
+  "Filter escape": {
+    "prefix": "\"escape\"",
+    "body": [
+      "\"| escape }}\""
+    ],
+    "description": "\"String filter: escape\""
+  },
+  "Filter first": {
+    "prefix": "\"first\"",
+    "body": [
+      "\"| first\""
+    ],
+    "description": "\"Array filter: first\""
+  },
+  "Filter floor": {
+    "prefix": "\"floor\"",
+    "body": [
+      "\"| floor\""
+    ],
+    "description": "\"Math filter: floor\""
+  },
+  "Filter join": {
+    "prefix": "\"join\"",
+    "body": [
+      "\"| join: '${seperator:, }}'\""
+    ],
+    "description": "\"Array filter: join\""
+  },
+  "Filter jsonify": {
+    "prefix": "\"json\"",
+    "body": [
+      "\"| jsonify }}'\""
+    ],
+    "description": "\"Array filter: jsonify\""
+  },
+  "Filter last": {
+    "prefix": "\"last\"",
+    "body": [
+      "\"| last\""
+    ],
+    "description": "\"Array filter: last\""
+  },
+  "Filter lstrip": {
+    "prefix": "\"lstrip\"",
+    "body": [
+      "\"| lstrip }}\""
+    ],
+    "description": "\"String filter: lstrip\""
+  },
+  "Filter map": {
+    "prefix": "\"map\"",
+    "body": [
+      "\"| map: '${key}'\""
+    ],
+    "description": "\"Array filter: map\""
+  },
+  "Filter markdownify": {
+    "prefix": "\"markdown\"",
+    "body": [
+      "\"| markdownify }}\""
+    ],
+    "description": "\"String filter: markdownify\""
+  },
+  "Filter minus": {
+    "prefix": "\"minus\"",
+    "body": [
+      "\"| minus: ${minus:1}\""
+    ],
+    "description": "\"Math filter: minus\""
+  },
+  "Filter modulo": {
+    "prefix": "\"modulo\"",
+    "body": [
+      "\"| modulo: ${modulo:2}\""
+    ],
+    "description": "\"Math filter: modulo\""
+  },
+  "Filter plus": {
+    "prefix": "\"plus\"",
+    "body": [
+      "\"| plus: ${plus:1}\""
+    ],
+    "description": "\"Math filter: plus\""
+  },
+  "Filter prepend": {
+    "prefix": "\"prepend\"",
+    "body": [
+      "\"| prepend: '${string}' }}\""
+    ],
+    "description": "\"String filter: prepend\""
+  },
+  "Filter remove": {
+    "prefix": "\"remove\"",
+    "body": [
+      "\"| remove: '${string}' }}\""
+    ],
+    "description": "\"String filter: remove\""
+  },
+  "Filter remove first": {
+    "prefix": "\"remove_first\"",
+    "body": [
+      "\"| remove_first: '${string}' }}\""
+    ],
+    "description": "\"String filter: remove first\""
+  },
+  "Filter replace": {
+    "prefix": "\"replace\"",
+    "body": [
+      "\"| replace: '${target}', '${replace}' }}\""
+    ],
+    "description": "\"String filter: replace\""
+  },
+  "Filter replace first": {
+    "prefix": "\"replace_first\"",
+    "body": [
+      "\"| replace_first: '${target}', '${replace}' }}\""
+    ],
+    "description": "\"String filter: replace first\""
+  },
+  "Filter round": {
+    "prefix": "\"round\"",
+    "body": [
+      "\"| round: ${round:0}\""
+    ],
+    "description": "\"Math filter: round\""
+  },
+  "Filter rstrip": {
+    "prefix": "\"rstrip\"",
+    "body": [
+      "\"| rstrip }}\""
+    ],
+    "description": "\"String filter: rstrip\""
+  },
+  "Filter size": {
+    "prefix": "\"size\"",
+    "body": [
+      "\"| size\""
+    ],
+    "description": "\"Array filter: size\""
+  },
+  "Filter slice": {
+    "prefix": "\"slice\"",
+    "body": [
+      "\"| slice: ${from:0}, ${to:5} }}\""
+    ],
+    "description": "\"String filter: slice\""
+  },
+  "Filter slice single character": {
+    "prefix": "\"slice_single\"",
+    "body": [
+      "\"| slice: ${at} }}\""
+    ],
+    "description": "\"String filter: slice with single parameter\""
+  },
+  "Filter sort": {
+    "prefix": "\"sort\"",
+    "body": [
+      "\"| sort\""
+    ],
+    "description": "\"Array filter: sort\""
+  },
+  "Filter split": {
+    "prefix": "\"split\"",
+    "body": [
+      "\"| split: '${splitter:,}' }}\""
+    ],
+    "description": "\"String filter: split\""
+  },
+  "Filter strip": {
+    "prefix": "\"strip\"",
+    "body": [
+      "\"| strip }}\""
+    ],
+    "description": "\"String filter: strip\""
+  },
+  "Filter strip html": {
+    "prefix": "\"strip_html\"",
+    "body": [
+      "\"| strip_html }}\""
+    ],
+    "description": "\"String filter: strip html\""
+  },
+  "Filter strip newlines": {
+    "prefix": "\"strip_newlines\"",
+    "body": [
+      "\"| strip_newlines }}\""
+    ],
+    "description": "\"String filter: strip newlines\""
+  },
+  "Filter times": {
+    "prefix": "\"times\"",
+    "body": [
+      "\"| times: ${times:1}\""
+    ],
+    "description": "\"Math filter: times\""
+  },
+  "Filter truncate": {
+    "prefix": "\"truncate\"",
+    "body": [
+      "\"| truncate: ${length:20}, '${ellipsis:...}' }}\""
+    ],
+    "description": "\"String filter: truncate\""
+  },
+  "Filter truncatewords": {
+    "prefix": "\"truncatewords\"",
+    "body": [
+      "\"| truncatewords: ${length:5}, '${ellipsis:...}' }}\""
+    ],
+    "description": "\"String filter: truncatewords\""
+  },
+  "Filter uniq": {
+    "prefix": "\"uniq\"",
+    "body": [
+      "\"| uniq\""
+    ],
+    "description": "\"Array filter: uniq\""
+  },
+  "Filter upcase": {
+    "prefix": "\"upcase\"",
+    "body": [
+      "\"| upcase }}\""
+    ],
+    "description": "\"String filter: upcase }}\""
+  },
+  "Filter uri escape": {
+    "prefix": "\"uri_escape\"",
+    "body": [
+      "\"| uri_escape }}\""
+    ],
+    "description": "\"String filter: uri escape\""
+  },
+  "Filter url encode": {
+    "prefix": "\"url_encode\"",
+    "body": [
+      "\"| url_encode }}\""
+    ],
+    "description": "\"String filter: url encode\""
+  },
+  "Filter xml escape": {
+    "prefix": "\"xml_escape\"",
+    "body": [
+      "\"| xml_escape }}\""
+    ],
+    "description": "\"String filter: xml escape\""
+  },
+  "Front Matter": {
+    "prefix": "\"fm\"",
+    "body": [
+      "\"---\"",
+      "\"layout: ${layout:default}\"",
+      "\"title: ${title}\"",
+      "\"categories: ${category}\"",
+      "\"permalink: ${path}\"",
+      "\"tags: ${tag}\"",
+      "\"excerpt: ${description}\"",
+      "\"---\""
+    ],
+    "description": "\"Add front matter\""
+  },
+  "Show": {
+    "prefix": "\"show\"",
+    "body": [
+      "\"{{ $1 }}\""
+    ],
+    "description": "\"Output markup: {{ }}\""
+  },
+  "Site Vairable Date": {
+    "prefix": "\"date\"",
+    "body": [
+      "\"{{ site.date | date: '${format: %b %d, %Y}' }}\""
+    ],
+    "description": "\"Tag: site.date\""
+  },
+  "Tag Option limit": {
+    "prefix": "\"limit\"",
+    "body": [
+      "\"limit: ${limit:5}\""
+    ],
+    "description": "\"For loops option\""
+  },
+  "Tag Option offset": {
+    "prefix": "\"offset\"",
+    "body": [
+      "\"offset: ${offset:0}\""
+    ],
+    "description": "\"For loops option\""
+  },
+  "Tag Option reversed": {
+    "prefix": "\"reversed\"",
+    "body": [
+      "\"reversed\""
+    ],
+    "description": "\"For loops option\""
+  },
+  "Tag Post URL": {
+    "prefix": "\"posturl\"",
+    "body": [
+      "\"{%- post_url ${url:} -%}\""
+    ],
+    "description": "\"Tag: post_url\""
+  },
+  "Tag assign": {
+    "prefix": "\"assign\"",
+    "body": [
+      "\"{%- assign ${variable} = ${value} -%}\""
+    ],
+    "description": "\"Variable tag: assign\""
+  },
+  "Tag break": {
+    "prefix": "\"break\"",
+    "body": [
+      "\"{%- break -%}\""
+    ],
+    "description": "\"Iteration tag: break\""
+  },
+  "Tag capture": {
+    "prefix": "\"capture\"",
+    "body": [
+      "\"{%- capture ${variable} -%}${code:}{%- endcapture -%}\""
+    ],
+    "description": "\"Variable tag: capture\""
+  },
+  "Tag case": {
+    "prefix": "\"case\"",
+    "body": [
+      "\"{%- case ${variable} -%}\"",
+      "\"\\t{%- when ${condition} -%}\"",
+      "\"\\t\\t${code1:}\"",
+      "\"\\t{%- else -%}\"",
+      "\"\\t\\t${code2:}\"",
+      "\"{%- endcase -%}\""
+    ],
+    "description": "\"Control flow tag: case\""
+  },
+  "Tag collection directory": {
+    "prefix": "\"cdirp\"",
+    "body": [
+      "\"{{ site.${my_collection}.directory }}\""
+    ],
+    "description": "\"The full path to the collection's source direcotry\""
+  },
+  "Tag collection relative path": {
+    "prefix": "\"crelp\"",
+    "body": [
+      "\"{{ site.collections.${my_collection}.relative_path }}\""
+    ],
+    "description": "\"The path to the document's source file realtive to the site source\""
+  },
+  "Tag comment": {
+    "prefix": "\"comment\"",
+    "body": [
+      "\"{%- comment -%}${description:}{%- endcomment -%}\""
+    ],
+    "description": "\"Control flow tag: case\""
+  },
+  "Tag context variable": {
+    "prefix": "\"convar\"",
+    "body": [
+      "\"{{ ${variable:} }}\""
+    ],
+    "description": "\"Context Variable\""
+  },
+  "Tag continue": {
+    "prefix": "\"continue\"",
+    "body": [
+      "\"{%- continue -%}\""
+    ],
+    "description": "\"Iteration tag: continue\""
+  },
+  "Tag cycle": {
+    "prefix": "\"cycle\"",
+    "body": [
+      "\"{%- cycle '${0:odd}', '${1:even}' -%}\""
+    ],
+    "description": "\"Iteration tag: cycle\""
+  },
+  "Tag decrement": {
+    "prefix": "\"decrement\"",
+    "body": [
+      "\"{%- decrement ${variable} -%}\""
+    ],
+    "description": "\"Variable tag: decrement\""
+  },
+  "Tag else": {
+    "prefix": "\"else\"",
+    "body": [
+      "\"{%- else -%}\""
+    ],
+    "description": "\"Control flow tag: else\""
+  },
+  "Tag elsif": {
+    "prefix": "\"elsif\"",
+    "body": [
+      "\"{%- elsif ${condition} -%}\""
+    ],
+    "description": "\"Control flow tag: elsif\""
+  },
+  "Tag for": {
+    "prefix": "\"for\"",
+    "body": [
+      "\"{%- for ${item} in ${collection} -%}\"",
+      "\"\\t${code:}\"",
+      "\"{%- endfor -%}\""
+    ],
+    "description": "\"Iteration tag: for\""
+  },
+  "Tag gist": {
+    "prefix": "\"gist\"",
+    "body": [
+      "\"{%- gist ${gist:user/gist-id} -%}\""
+    ],
+    "description": "\"Add a gist code block\""
+  },
+  "Tag highlight": {
+    "prefix": "\"highlight\"",
+    "body": [
+      "\"{%- highlight ${lang:javascript} -%}\"",
+      "\"\\t\\t${code:}\"",
+      "\"{%- endhighlight -%}\""
+    ],
+    "description": "\"Syntax tag: highlight\""
+  },
+  "Tag if": {
+    "prefix": "\"if\"",
+    "body": [
+      "\"{%- if ${condition} -%}\"",
+      "\"\\t${code:}\"",
+      "\"{%- endif -%}\""
+    ],
+    "description": "\"Control flow tag: if\""
+  },
+  "Tag if else": {
+    "prefix": "\"ifelse\"",
+    "body": [
+      "\"{%- if ${condition} -%}\"",
+      "\"\\t${code1:}\"",
+      "\"{%- else -%}\"",
+      "\"\\t${code2:}\"",
+      "\"{%- endif -%}\""
+    ],
+    "description": "\"Control flow tag: if else\""
+  },
+  "Tag include": {
+    "prefix": "\"include\"",
+    "body": [
+      "\"{%- include ${snippet} -%}\""
+    ],
+    "description": "\"Tag: include\""
+  },
+  "Tag include relative": {
+    "prefix": "\"increl\"",
+    "body": [
+      "\"{%- include_relative '${file:}' -%}\""
+    ],
+    "description": "\"Tag: include relative\""
+  },
+  "Tag increment": {
+    "prefix": "\"increment\"",
+    "body": [
+      "\"{%- increment ${variable} -%}\""
+    ],
+    "description": "\"Variable tag: increment\""
+  },
+  "Tag paginate next or previous page": {
+    "prefix": "\"paginate\"",
+    "body": [
+      "\"{{ paginator.${next:previous}_page }}\""
+    ],
+    "description": "\"Tag: paginate next or previous page\""
+  },
+  "Tag raw": {
+    "prefix": "\"raw\"",
+    "body": [
+      "\"{%- raw -%}${code:}{%- endraw -%}\""
+    ],
+    "description": "\"Tag: raw\""
+  },
+  "Tag unless": {
+    "prefix": "\"unless\"",
+    "body": [
+      "\"{%- unless ${condition} -%}\"",
+      "\"\\t${code:}\"",
+      "\"{%- endunless -%}\""
+    ],
+    "description": "\"Control flow tag: unless\""
+  },
+  "Tag when": {
+    "prefix": "\"when\"",
+    "body": [
+      "\"{%- when ${condition} -%}\"",
+      "\"${code:}\""
+    ],
+    "description": "\"Control flow tag: when\""
   }
 }

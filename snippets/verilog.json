@@ -1,40 +1,19 @@
 {
-  "if": {
-    "prefix": "if",
-    "body": ["if (${1}) begin", "\n${0}", "\nend"],
-    "description": "If statement"
-  },
-  "if-else": {
-    "prefix": "ife",
+  "Initial Begin": {
+    "prefix": "ini",
     "body": [
-      "if (${1}) begin",
-      "\n\t${2}",
-      "\nend",
-      "\nelse begin",
-      "\n\t${3}",
+      "initial begin\n\t${0}\nend"
+    ],
+    "description": "Initial Begin"
+  },
+  "always block": {
+    "prefix": "al",
+    "body": [
+      "always @(${1:Sensitive list}) begin\n",
+      "\t${0}",
       "\nend"
     ],
-    "description": "If-else statement"
-  },
-  "else-if": {
-    "prefix": "eif",
-    "body": ["else if (${1}) begin", "\n${0}", "\nend"],
-    "description": "else-if statement"
-  },
-  "else": {
-    "prefix": "el",
-    "body": ["else begin", "\n${0}", "\nend"],
-    "description": "else-if statement"
-  },
-  "while": {
-    "prefix": "wh",
-    "body": ["whlie (${1}) begin\n\t${0}\nend"],
-    "description": "While loop"
-  },
-  "repeat loop": {
-    "prefix": "repeat (${1}) begin",
-    "body": ["repeat (${1}) begin\n\t${0}\nend"],
-    "description": "Repeat loop"
+    "description": "Always block"
   },
   "case statement": {
     "prefix": "case",
@@ -54,15 +33,23 @@
     ],
     "description": "Casez Statement"
   },
-  "always block": {
-    "prefix": "al",
-    "body": ["always @(${1:Sensitive list}) begin\n", "\t${0}", "\nend"],
-    "description": "Always block"
+  "else": {
+    "prefix": "el",
+    "body": [
+      "else begin",
+      "\n${0}",
+      "\nend"
+    ],
+    "description": "else-if statement"
   },
-  "module block": {
-    "prefix": "modu",
-    "body": ["module ${1:FILENAME} (\n\t${2}\n);", "\t${0}", "\nendmodule"],
-    "description": "Module Block"
+  "else-if": {
+    "prefix": "eif",
+    "body": [
+      "else if (${1}) begin",
+      "\n${0}",
+      "\nend"
+    ],
+    "description": "else-if statement"
   },
   "for": {
     "prefix": "for",
@@ -75,7 +62,9 @@
   },
   "forever": {
     "prefix": "forev",
-    "body": ["forever begin\n\t${0}\nend"],
+    "body": [
+      "forever begin\n\t${0}\nend"
+    ],
     "description": "Forever loop"
   },
   "function": {
@@ -87,20 +76,51 @@
     ],
     "description": "Function snippet"
   },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if (${1}) begin",
+      "\n${0}",
+      "\nend"
+    ],
+    "description": "If statement"
+  },
+  "if-else": {
+    "prefix": "ife",
+    "body": [
+      "if (${1}) begin",
+      "\n\t${2}",
+      "\nend",
+      "\nelse begin",
+      "\n\t${3}",
+      "\nend"
+    ],
+    "description": "If-else statement"
+  },
+  "module block": {
+    "prefix": "modu",
+    "body": [
+      "module ${1:FILENAME} (\n\t${2}\n);",
+      "\t${0}",
+      "\nendmodule"
+    ],
+    "description": "Module Block"
+  },
+  "repeat loop": {
+    "prefix": "repeat (${1}) begin",
+    "body": [
+      "repeat (${1}) begin\n\t${0}\nend"
+    ],
+    "description": "Repeat loop"
+  },
   "task": {
     "prefix": "task",
-    "body": ["task ${1:name}(${2});", "\n\t${0}", "\nendtask: $1"],
+    "body": [
+      "task ${1:name}(${2});",
+      "\n\t${0}",
+      "\nendtask: $1"
+    ],
     "description": "Task snippet"
-  },
-  "Initial Begin": {
-    "prefix": "ini",
-    "body": ["initial begin\n\t${0}\nend"],
-    "description": "Initial Begin"
-  },
-  "typedef struct packed": {
-    "prefix": "tdsp",
-    "body": ["typedef struct packed {", "\n\tint ${2:data};", "\n${1:name}"],
-    "description": "Typedef struct packed"
   },
   "typedef enum": {
     "prefix": "tde",
@@ -110,5 +130,21 @@
       "\n} ${1:my_dest_t};"
     ],
     "description": "Typedef enum"
+  },
+  "typedef struct packed": {
+    "prefix": "tdsp",
+    "body": [
+      "typedef struct packed {",
+      "\n\tint ${2:data};",
+      "\n${1:name}"
+    ],
+    "description": "Typedef struct packed"
+  },
+  "while": {
+    "prefix": "wh",
+    "body": [
+      "whlie (${1}) begin\n\t${0}\nend"
+    ],
+    "description": "While loop"
   }
 }

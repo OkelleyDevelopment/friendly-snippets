@@ -1,30 +1,59 @@
 {
   "%": {
-    "prefix": "%",
-    "body": "<% $0 %>"
+    "prefix": "\"%\"",
+    "body": [
+      "\"<% $0 %>\""
+    ],
+    "description": "null"
   },
   "=": {
-    "prefix": "=",
-    "body": "<%= $0 %>"
-  },
-  "gettext": {
-    "prefix": "gt",
-    "body": "<%= gettext(\"$0\") %>"
+    "prefix": "\"=\"",
+    "body": [
+      "\"<%= $0 %>\""
+    ],
+    "description": "null"
   },
   "for": {
-    "prefix": "for",
-    "body": ["<%= for ${1:item} <- ${2:items} do %>", "  $0", "<% end %>"]
+    "prefix": "\"for\"",
+    "body": [
+      "\"<%= for ${1:item} <- ${2:items} do %>\"",
+      "\"  $0\"",
+      "\"<% end %>\""
+    ],
+    "description": "null"
+  },
+  "gettext": {
+    "prefix": "\"gt\"",
+    "body": [
+      "\"<%= gettext(\\\"$0\\\") %>\""
+    ],
+    "description": "null"
   },
   "if": {
-    "prefix": "if",
-    "body": ["<%= if ${1} do %>", "  $0", "<% end %>"]
+    "prefix": "\"if\"",
+    "body": [
+      "\"<%= if ${1} do %>\"",
+      "\"  $0\"",
+      "\"<% end %>\""
+    ],
+    "description": "null"
   },
   "ife": {
-    "prefix": "if",
-    "body": ["<%= if ${1} do %>", "  $2", "<% else %>", "  $0", "<% end %>"]
+    "prefix": "\"if\"",
+    "body": [
+      "\"<%= if ${1} do %>\"",
+      "\"  $2\"",
+      "\"<% else %>\"",
+      "\"  $0\"",
+      "\"<% end %>\""
+    ],
+    "description": "null"
   },
   "lin": {
-    "prefix": "if",
-    "body": "<%= link \"${1:Submit}\", to: ${2:\"/users\"}, method: ${3::delete} %>"
+    "prefix": "\"if\"",
+    "body": [
+      "\"<%= link \\\"${1:Submit}\\\", to: ${2:\\\"/users\\\"}, method: ${3::delete} %>\""
+    ],
+    "description": "null"
   }
 }

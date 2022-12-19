@@ -1,103 +1,111 @@
 {
-  "object": {
-    "prefix": "object",
+  "app": {
+    "prefix": "\"app\"",
     "body": [
-      "object ${1:ObjectName} {",
-      "\t${2:println(\"Hello, world!\")}",
-      "}"
+      "\"object ${1:App} extends App {\"",
+      "\"\\t${2:println(\\\"Hello, world!\\\")}\"",
+      "\"}\""
     ],
-    "description": "Object"
-  },
-  "class": {
-    "prefix": "class",
-    "body": [
-      "class ${1:ClassName} {",
-      "\t${2:println(\"Hello, world!\")}",
-      "}"
-    ],
-    "description": "Class"
+    "description": "\"Object extending App\""
   },
   "case_class": {
-    "prefix": "case_class",
-    "body": "case class ${1:CaseClassName}(${2:argName}: ${3:ArgType})",
-    "description": "Case class"
-  },
-  "trait": {
-    "prefix": "trait",
-    "body": ["trait ${1:TraitName} {", "\t${2:}", "}"],
-    "description": "Trait"
-  },
-  "main_object": {
-    "prefix": "obj_main",
+    "prefix": "\"case_class\"",
     "body": [
-      "object ${1:ObjectName} {",
-      "\tdef main(args: Array[String]): Unit = {",
-      "\t\t${2:println(\"Hello, world!\")}",
-      "\t}",
-      "}"
+      "\"case class ${1:CaseClassName}(${2:argName}: ${3:ArgType})\""
     ],
-    "description": "Object with main method"
+    "description": "\"Case class\""
   },
-  "app": {
-    "prefix": "app",
+  "class": {
+    "prefix": "\"class\"",
     "body": [
-      "object ${1:App} extends App {",
-      "\t${2:println(\"Hello, world!\")}",
-      "}"
+      "\"class ${1:ClassName} {\"",
+      "\"\\t${2:println(\\\"Hello, world!\\\")}\"",
+      "\"}\""
     ],
-    "description": "Object extending App"
+    "description": "\"Class\""
   },
   "def": {
-    "prefix": "def",
+    "prefix": "\"def\"",
     "body": [
-      "def ${1:methodName}(${2:argName}: ${3:ArgType}): ${4:ReturnType} = {",
-      "\t${5:println(\"Hello, world!\")}",
-      "}"
+      "\"def ${1:methodName}(${2:argName}: ${3:ArgType}): ${4:ReturnType} = {\"",
+      "\"\\t${5:println(\\\"Hello, world!\\\")}\"",
+      "\"}\""
     ],
-    "description": "Method"
+    "description": "\"Method\""
   },
   "def_short": {
-    "prefix": "def_short",
-    "body": "def ${1:methodName}(${2:argName}: ${3:ArgType}): ${4:ReturnType} = ${5:println(\"Hello, world!\")}",
-    "description": "Method as one-liner"
+    "prefix": "\"def_short\"",
+    "body": [
+      "\"def ${1:methodName}(${2:argName}: ${3:ArgType}): ${4:ReturnType} = ${5:println(\\\"Hello, world!\\\")}\""
+    ],
+    "description": "\"Method as one-liner\""
   },
   "for": {
-    "prefix": "for",
+    "prefix": "\"for\"",
     "body": [
-      "for (${1:element} <- elements) {",
-      "\t${2:println(element.toString)}",
-      "}"
+      "\"for (${1:element} <- elements) {\"",
+      "\"\\t${2:println(element.toString)}\"",
+      "\"}\""
     ],
-    "description": "For loop"
-  },
-  "while": {
-    "prefix": "while",
-    "body": [
-      "while(${1:condition}) {",
-      "\t${2:println(\"Hello, world!\")}",
-      "}"
-    ],
-    "description": "While loop"
+    "description": "\"For loop\""
   },
   "ifelse": {
-    "prefix": "ifelse",
+    "prefix": "\"ifelse\"",
     "body": [
-      "if (${1:condition}) {",
-      "\t${2:println(\"Hello, world!\")}",
-      "} else {",
-      "\t${2:println(\"Hello, world!\")}",
-      "}"
+      "\"if (${1:condition}) {\"",
+      "\"\\t${2:println(\\\"Hello, world!\\\")}\"",
+      "\"} else {\"",
+      "\"\\t${2:println(\\\"Hello, world!\\\")}\"",
+      "\"}\""
     ],
-    "description": "Branch based on conditions using if/else"
+    "description": "\"Branch based on conditions using if/else\""
+  },
+  "main_object": {
+    "prefix": "\"obj_main\"",
+    "body": [
+      "\"object ${1:ObjectName} {\"",
+      "\"\\tdef main(args: Array[String]): Unit = {\"",
+      "\"\\t\\t${2:println(\\\"Hello, world!\\\")}\"",
+      "\"\\t}\"",
+      "\"}\""
+    ],
+    "description": "\"Object with main method\""
   },
   "match": {
-    "prefix": "match",
+    "prefix": "\"match\"",
     "body": [
-      "${1:x} match {",
-      "\tcase ${2:0} => ${3:\"zero\"}",
-      "\tcase ${4:1} => ${5:\"one\"}",
-      "}"
+      "\"${1:x} match {\"",
+      "\"\\tcase ${2:0} => ${3:\\\"zero\\\"}\"",
+      "\"\\tcase ${4:1} => ${5:\\\"one\\\"}\"",
+      "\"}\""
     ],
-    "description": "Branch based on conditions using pattern matching"
+    "description": "\"Branch based on conditions using pattern matching\""
+  },
+  "object": {
+    "prefix": "\"object\"",
+    "body": [
+      "\"object ${1:ObjectName} {\"",
+      "\"\\t${2:println(\\\"Hello, world!\\\")}\"",
+      "\"}\""
+    ],
+    "description": "\"Object\""
+  },
+  "trait": {
+    "prefix": "\"trait\"",
+    "body": [
+      "\"trait ${1:TraitName} {\"",
+      "\"\\t${2:}\"",
+      "\"}\""
+    ],
+    "description": "\"Trait\""
+  },
+  "while": {
+    "prefix": "\"while\"",
+    "body": [
+      "\"while(${1:condition}) {\"",
+      "\"\\t${2:println(\\\"Hello, world!\\\")}\"",
+      "\"}\""
+    ],
+    "description": "\"While loop\""
   }
 }
