@@ -39,13 +39,7 @@
   },
   "main(void) template": {
     "prefix": "mainn",
-    "body": [
-      "int main(void)",
-      "{",
-      "\t$0",
-      "\treturn EXIT_SUCCESS;",
-      "}"
-    ],
+    "body": ["int main(void)", "{", "\t$0", "\treturn EXIT_SUCCESS;", "}"],
     "description": "Void main function variant"
   },
   "#include <...>": {
@@ -70,29 +64,17 @@
   },
   "#if": {
     "prefix": "#if",
-    "body": [
-      "#if ${1:0}",
-      "$0",
-      "#endif /* if $1 */"
-    ],
+    "body": ["#if ${1:0}", "$0", "#endif /* if $1 */"],
     "description": "Code snippet for #if"
   },
   "#ifdef": {
     "prefix": "#ifdef",
-    "body": [
-      "#ifdef ${1:DEBUG}",
-      "$0",
-      "#endif /* ifdef $1 */"
-    ],
+    "body": ["#ifdef ${1:DEBUG}", "$0", "#endif /* ifdef $1 */"],
     "description": "Code snippet for #ifdef"
   },
   "#ifndef": {
     "prefix": "#ifndef",
-    "body": [
-      "#ifndef ${1:DEBUG}",
-      "$0",
-      "#endif /* ifndef $1 */"
-    ],
+    "body": ["#ifndef ${1:DEBUG}", "$0", "#endif /* ifndef $1 */"],
     "description": "Code snippet for #ifndef"
   },
   "include once": {
@@ -103,7 +85,7 @@
 
       "$0",
 
-      "#endif /* end of include guard: $1 */",
+      "#endif /* end of include guard: $1 */"
     ],
     "description": "Header include guard"
   },
@@ -149,7 +131,13 @@
   },
   "switch": {
     "prefix": "switch",
-    "body": ["switch (${1:switch_on}) {", "\tdefault:", "\t\t$0", "\t\tbreak;", "}"],
+    "body": [
+      "switch (${1:switch_on}) {",
+      "\tdefault:",
+      "\t\t$0",
+      "\t\tbreak;",
+      "}"
+    ],
     "description": "Code snippet for switch statement"
   },
   "case": {
